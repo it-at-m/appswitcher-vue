@@ -1,0 +1,39 @@
+{
+  "branches": [
+    {
+      "name": "main"
+    },
+    {
+      "name": "alpha",
+      "prerelease": true
+    },
+    {
+      "name": "beta",
+      "prerelease": true
+    }
+  ],
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/npm",
+    [
+      "@semantic-release/github",
+      {
+        "assets": [
+          {
+            "path": "dist/appswitcher.js",
+            "label": "JS distribution"
+          },
+          {
+            "path": "dist/appswitcher.umd.cjs",
+            "label": "UMD/CJS distribution"
+          },
+          {
+            "path": "dist/style.css",
+            "label": "CSS distribution"
+          }
+        ]
+      }
+    ]
+  ]
+}

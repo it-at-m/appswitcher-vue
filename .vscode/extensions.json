@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "Vue.volar",
+    "Vue.vscode-typescript-vue-plugin",
+    "ZixuanChen.vitest-explorer"
+  ],
+  "unwantedRecommendations": [
+    "octref.vetur",
+    "Orta.vscode-jest",
+    "esbenp.prettier-vscode"
+  ]
+}
