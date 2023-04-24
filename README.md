@@ -20,7 +20,6 @@ Required Peer Dependencies:
 
 ### Use
 
-
 ```js
 import { Appswitcher } from "@muenchen/appswitcher-vue";
 ```
@@ -88,7 +87,6 @@ Don't forget to give the project a star! Thanks again!
 5. Push to the Branch (`git push origin feature/AmazingFeature`)
 6. Open a Pull Request
 
-
 ## License
 
 Distributed under the MIT License. See [LICENSE](LICENSE) file for more information.
@@ -96,4 +94,3 @@ Distributed under the MIT License. See [LICENSE](LICENSE) file for more informat
 ## Contact
 
 it@M - opensource@muenchen.de
-
