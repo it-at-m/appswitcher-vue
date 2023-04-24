@@ -1,6 +1,6 @@
 {
   "name": "@muenchen/appswitcher-vue",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Vue.js/Vuetify component for appswitcher-server",
   "license": "MIT",
   "type": "module",
