@@ -39,7 +39,7 @@
     "jsdom": "^21.1.1",
     "path": "^0.12.7",
     "sass": "~1.62",
-    "semantic-release": "^19.0.5",
+    "semantic-release": "^21.0.1",
     "typescript": "^5.0.4",
     "unplugin-vue-components": "^0.24.1",
     "vite": "^4.0.0",
