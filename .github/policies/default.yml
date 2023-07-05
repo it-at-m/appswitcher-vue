@@ -2,10 +2,11 @@ name: License Policy
 
 licensing:
   ignores:
-    names:
-      - pkg:npm/escape-string-regexp*
+    ids:
+      - GPL-3*MIT
   conditions:
     ids:
       - GPL-*
       - LGPL-*
       - AGPL-*
+  level: error
