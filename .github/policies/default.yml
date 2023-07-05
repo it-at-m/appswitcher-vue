@@ -1,0 +1,11 @@
+name: License Policy
+
+licensing:
+  ignores:
+    names:
+      - "npm/escape-string-regexp"
+  conditions:
+    ids:
+      - GPL-*
+      - LGPL-*
+      - AGPL-*

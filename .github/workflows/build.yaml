@@ -21,8 +21,7 @@ jobs:
       - name: Advance Security Policy as Code
         uses: advanced-security/policy-as-code@v2.3
         with:
-          policy: GeekMasher/security-queries
-          policy-path: policies/default.yml
+          policy-path: .github/policies/default.yml
           token: ${{ secrets.GITHUB_TOKEN }}
           argvs: "--disable-dependabot --disable-secret-scanning --disable-code-scanning --display"
 
