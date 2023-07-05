@@ -1,12 +1,14 @@
 name: License Policy
 
 licensing:
-  ignores:
-    ids:
-      - "GPL-3.0 AND MIT"
+  # ignores:
+  #   ids:
+  #     - "GPL-3.0 AND MIT"
   conditions:
     ids:
-      - GPL-*
+      - GPL-1.0
+      - GPL-2.0
+      - GPL-3.0
       - LGPL-*
       - AGPL-*
   level: error
