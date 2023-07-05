@@ -2,8 +2,8 @@ name: License Policy
 
 licensing:
   ignores:
-    ids:
-      - "GPL-3.0 AND MIT"
+    names:
+      - pkg:npm/escape-string-regexp@5.0.0
   conditions:
     ids:
       - GPL-*
