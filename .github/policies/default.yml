@@ -3,7 +3,7 @@ name: License Policy
 licensing:
   ignores:
     names:
-      - escape-string-regexp
+      - escape-string-regexp*
   conditions:
     ids:
       - GPL-*
