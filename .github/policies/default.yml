@@ -3,7 +3,7 @@ name: License Policy
 licensing:
   ignores:
     names:
-      - pkg:npm/escape-string-regexp@5.0.0
+      - escape-string-regexp
   conditions:
     ids:
       - GPL-*
