@@ -11,6 +11,7 @@ env:
 
 permissions:
   contents: read # for checkout
+  security-events: read # to get dependencies for compliance even on PRs
 
 jobs:
   compliance:
