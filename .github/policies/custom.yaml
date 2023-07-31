@@ -17,8 +17,8 @@ licensing:
     ids:
       - npm/escape-string-regexp
       - npm/path-exists
-      - npm/slash
-      - npm/yocto-queue
+#      - npm/slash
+#      - npm/yocto-queue
 
 secretscanning:
   level: all
