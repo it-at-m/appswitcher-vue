@@ -1,0 +1,24 @@
+name: appswitcher-vue custom
+
+# Dependency Licensing Alerts
+licensing:
+  conditions:
+    ids:
+      - GPL-*
+      - LGPL-*
+      - AGPL-*
+
+  warnings:
+    # Warning is the dependency isn't known
+    ids:
+      - Other
+      - NA
+  ignores:
+    ids:
+      - npm/escape-string-regexp
+      - npm/path-exists
+      - npm/slash
+      - npm/yocto-queue
+
+secretscanning:
+  level: all
