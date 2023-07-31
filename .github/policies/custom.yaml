@@ -15,8 +15,8 @@ licensing:
       - NA
   ignores:
     ids:
-      - pkg:npm/escape-string-regexp
-      - pkg:npm/path-exists
+      - pkg:npm/escape-string-regexp@5.0.0
+      - pkg:npm/path-exists@5.0.0
     names:
-      - pkg:npm/slash
-      - pkg:npm/yocto-queue
+      - pkg:npm/slash@4.0.0
+      - pkg:npm/yocto-queue@1.0.0
