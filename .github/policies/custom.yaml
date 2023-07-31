@@ -14,9 +14,11 @@ licensing:
       - Other
       - NA
   ignores:
-    ids:
-      - pkg:npm/escape-string-regexp@5.0.0
-      - pkg:npm/path-exists@5.0.0
     names:
-      - pkg:npm/slash@4.0.0
-      - pkg:npm/yocto-queue@1.0.0
+      - escape-string-regexp
+      - path-exists
+#      - npm/slash
+#      - npm/yocto-queue
+
+secretscanning:
+  level: all
