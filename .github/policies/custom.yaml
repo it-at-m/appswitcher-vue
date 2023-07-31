@@ -17,8 +17,8 @@ licensing:
     names:
       - escape-string-regexp
       - path-exists
-#      - npm/slash
-#      - npm/yocto-queue
+      - slash
+      - yocto-queue
 
 secretscanning:
   level: all
