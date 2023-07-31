@@ -14,9 +14,9 @@ licensing:
       - Other
       - NA
   ignores:
-    ids:
-      - npm/escape-string-regexp
-      - npm/path-exists
+    names:
+      - escape-string-regexp
+      - path-exists
 #      - npm/slash
 #      - npm/yocto-queue
 
