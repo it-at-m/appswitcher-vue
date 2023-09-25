@@ -40,7 +40,7 @@
     "path": "^0.12.7",
     "rimraf": "^5.0.1",
     "sass": "~1.66.0",
-    "semantic-release": "^21.0.1",
+    "semantic-release": "^22.0.0",
     "typescript": "^5.0.4",
     "unplugin-vue-components": "^0.25.1",
     "vite": "^4.0.0",
