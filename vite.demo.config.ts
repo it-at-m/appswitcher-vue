@@ -1,18 +1,27 @@
 import { defineConfig } from "vite";
-import { resolve } from "path";
-import { VuetifyResolver } from "unplugin-vue-components/resolvers";
-import Components from "unplugin-vue-components/vite";
-import vue from "@vitejs/plugin-vue2";
+import vue from '@vitejs/plugin-vue'
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
+import ViteFonts from 'unplugin-fonts/vite'
+
 
 // https://vitejs.dev/config/
 export default defineConfig({
   // GitLab pages is served with additional contextPath
   base: "/einrichtungsverwaltung/ezldap-vue-select/",
   plugins: [
-    vue(),
-    Components({
-      dts: "components-demo.d.ts",
-      resolvers: [VuetifyResolver()],
+    vue({
+      template: { transformAssetUrls }
+    }),
+    vuetify({
+      autoImport: true,
+    }),
+    ViteFonts({
+      google: {
+        families: [{
+          name: 'Roboto',
+          styles: 'wght@100;300;400;500;700;900',
+        }],
+      },
     }),
   ],
   build: {
