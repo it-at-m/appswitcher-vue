@@ -1,22 +1,21 @@
 import { defineConfig } from "vitest/config";
-import { VuetifyResolver } from "unplugin-vue-components/resolvers";
-import Components from "unplugin-vue-components/vite";
-import vue from "@vitejs/plugin-vue2";
+import vue from "@vitejs/plugin-vue";
+import vuetify from "vite-plugin-vuetify";
 
 // https://vitest.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
-    Components({
-      resolvers: [VuetifyResolver()],
-    }),
+    vuetify({
+      autoImport: true
+    })
   ],
   test: {
     globals: true,
     environment: "jsdom",
     deps: {
-      inline: ["vuetify"],
+      inline: ["vuetify"]
     },
-    setupFiles: "tests/setup.ts",
-  },
+    setupFiles: "tests/setup.js"
+  }
 });

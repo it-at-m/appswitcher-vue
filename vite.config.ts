@@ -1,16 +1,22 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
-import { VuetifyResolver } from "unplugin-vue-components/resolvers";
-import Components from "unplugin-vue-components/vite";
-import vue from "@vitejs/plugin-vue2";
+import vue from "@vitejs/plugin-vue";
+import vuetify from "vite-plugin-vuetify";
+import eslintPlugin from "vite-plugin-eslint";
+import dts from "vite-plugin-dts";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
-    Components({
-      resolvers: [VuetifyResolver()],
+    // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
+    vuetify({
+      autoImport: true
     }),
+    eslintPlugin({
+      fix: true
+    }),
+    dts()
   ],
   build: {
     lib: {
@@ -18,7 +24,7 @@ export default defineConfig({
       entry: resolve(__dirname, "src/components/index.ts"),
       name: "Appswitcher",
       // the proper extensions will be added
-      fileName: "appswitcher",
+      fileName: "appswitcher"
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
@@ -29,9 +35,9 @@ export default defineConfig({
         // for externalized deps
         globals: {
           vue: "Vue",
-          "vuetify/lib": "Vuetify",
-        },
-      },
-    },
-  },
+          "vuetify/lib": "Vuetify"
+        }
+      }
+    }
+  }
 });

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, useAttrs, computed, onBeforeMount } from "vue";
+import { ref, computed, onBeforeMount, watch } from "vue";
 
 interface Props {
   baseUrl?: string;
@@ -11,10 +11,11 @@ interface Props {
   height?: string;
   icon?: string;
 }
-const props: Props = withDefaults(defineProps<Props>(), {
+const componentProps: Props = withDefaults(defineProps<Props>(), {
   id: "appswitcher",
   appswitcherDownHeader: "appswitcher-server is not available",
-  appswitcherDownText: "Your apps could not be retrieved from appswitcher-server. Please try again later.",
+  appswitcherDownText:
+    "Your apps could not be retrieved from appswitcher-server. Please try again later.",
   width: "315",
   height: "300",
   icon: "mdi-apps",
@@ -24,47 +25,66 @@ const props: Props = withDefaults(defineProps<Props>(), {
 const appAvailable = ref(false);
 
 async function isAvailable() {
+  let available = false;
   try {
-    const response = await fetch(props.baseUrl + "/actuator/health");
-    if (!response.ok) {
-      return false;
+    const response = await fetch(componentProps.baseUrl + "/actuator/health");
+    if (response.ok) {
+      available = true;
     }
-    return true;
   } catch (error) {
-    return false;
+    // no-op
   }
+  appAvailable.value = available;
+  console.log(
+    "Appswitcher: checked availability of " +
+      componentProps.baseUrl +
+      "/actuator/health - available: " +
+      appAvailable.value
+  );
 }
 
 onBeforeMount(async () => {
-  appAvailable.value = await isAvailable();
-  console.log("Available: " + appAvailable.value);
-})
-
+  await isAvailable();
+  // console.log("Available: " + appAvailable.value);
+});
 
 const uriWithTags = computed(() => {
-  if (props.tags?.length === 0) {
-    return props.baseUrl;
+  if (componentProps.tags?.length === 0) {
+    return componentProps.baseUrl;
   } else {
-    return props.baseUrl + "/?tags=" + props.tags?.join(",");
+    return componentProps.baseUrl + "/?tags=" + componentProps.tags?.join(",");
   }
 });
+
+watch(
+  () => componentProps.baseUrl,
+  async () => {
+    await isAvailable();
+  }
+);
 
 defineExpose({ uriWithTags });
 </script>
 
 <template>
-  <v-menu eager :id="id" offset-y rounded="xl">
-    <template v-slot:activator="{ on: on }">
-      <v-btn :dark="$attrs.dark" icon v-on="on">
+  <v-menu :id="id" eager>
+    <template #activator="{ props }">
+      <v-btn icon v-bind="props">
         <v-icon>{{ icon }}</v-icon>
       </v-btn>
     </template>
     <v-card v-if="appAvailable">
-      <iframe :id="id + '-iframe'" frameborder="0" :src="uriWithTags" :width="width" :height="height" />
+      <iframe
+        :id="id + '-iframe'"
+        frameborder="0"
+        :src="uriWithTags"
+        :width="width"
+        :height="height"
+      />
     </v-card>
     <v-card v-else :width="width" :height="height">
-      <v-card-title>{{ props.appswitcherDownHeader }}</v-card-title>
-      <v-card-text>{{ props.appswitcherDownText }}</v-card-text>
+      <v-card-title>{{ componentProps.appswitcherDownHeader }}</v-card-title>
+      <v-card-text>{{ componentProps.appswitcherDownText }}</v-card-text>
     </v-card>
   </v-menu>
 </template>
