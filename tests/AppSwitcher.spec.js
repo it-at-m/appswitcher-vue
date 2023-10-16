@@ -1,8 +1,8 @@
 import { shallowMount } from "@vue/test-utils";
-import { Appswitcher } from "../src/components/index";
+import { AppSwitcher } from "../src/components/index";
 import { nextTick } from "vue";
 import { createVuetify } from "vuetify";
-import { describe, it, vi, expect } from "vitest";
+import { beforeEach, describe, it, vi, expect } from "vitest";
 import { config } from "@vue/test-utils";
 
 // see https://test-utils.vuejs.org/migration/#shallowMount-and-renderStubDefaultSlot
@@ -10,7 +10,7 @@ config.global.renderStubDefaultSlot = true;
 
 global.fetch = vi.fn();
 
-describe("Appswitcher.vue", () => {
+describe("AppSwitcher.vue", () => {
   let vuetify;
 
   beforeEach(() => {
@@ -20,7 +20,7 @@ describe("Appswitcher.vue", () => {
 
   it("Test Display Error Page", async () => {
     fetch.mockImplementation(() => Promise.reject("API is down"));
-    let wrapper = shallowMount(Appswitcher, {
+    let wrapper = shallowMount(AppSwitcher, {
       vuetify,
       props: {
         baseUrl: "https://example.com",
@@ -40,7 +40,7 @@ describe("Appswitcher.vue", () => {
     fetch.mockResolvedValue({
       ok: true
     });
-    let wrapper = shallowMount(Appswitcher, {
+    let wrapper = shallowMount(AppSwitcher, {
       vuetify,
       props: {
         id: "custom-id",
@@ -62,7 +62,7 @@ describe("Appswitcher.vue", () => {
   });
 
   it("Test Tags", async () => {
-    let wrapper = shallowMount(Appswitcher, {
+    let wrapper = shallowMount(AppSwitcher, {
       vuetify,
       props: {
         baseUrl: "http://example.com",

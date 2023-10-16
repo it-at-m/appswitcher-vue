@@ -73,9 +73,6 @@
       "@vue/eslint-config-typescript",
       "prettier",
       "plugin:vuetify/base"
-    ],
-    "rules": {
-      "vue/multi-word-component-names": "off"
-    }
+    ]
   }
 }
