@@ -12,6 +12,7 @@ interface Props {
   icon?: string;
 }
 const componentProps: Props = withDefaults(defineProps<Props>(), {
+  baseUrl: undefined,
   id: "appswitcher",
   appswitcherDownHeader: "appswitcher-server is not available",
   appswitcherDownText:

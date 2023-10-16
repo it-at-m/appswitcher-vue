@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reactive, ref, watch } from "vue";
-import { Appswitcher } from "./components/index";
+import { AppSwitcher } from "./components/index";
 import { useTheme } from "vuetify";
 
 const theme = useTheme();
@@ -65,7 +65,7 @@ toggleDarkMode();
             <v-card>
               <v-card-text>
                 <v-row class="ma-8">
-                  <Appswitcher
+                  <app-switcher
                     :base-url="state.baseUrl"
                     :icon="state.icon"
                     :width="state.width"

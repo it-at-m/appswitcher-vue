@@ -6,7 +6,7 @@ Provides a Vue.js/Vuetify component to quickly switch between apps provided by a
 
 ### Installation
 
-```
+```console
 npm install @muenchen/appswitcher-vue
 ```
 
@@ -14,21 +14,21 @@ Required Peer Dependencies:
 
 ```
 "@mdi/font": "> 5",
-"vue": "^2.7.14",
-"vuetify": "^2.6.12"
+"vue": "^3.2.0",
+"vuetify": "^^3.0.0"
 ```
 
 ### Use
 
 ```js
-import { Appswitcher } from "@muenchen/appswitcher-vue";
+import { AppSwitcher } from "@muenchen/appswitcher-vue";
 ```
 
 ```js
 export default {
   name: "MyApp",
   components: {
-    Appswitcher
+    AppSwitcher
   }
 });
 ```
@@ -39,7 +39,7 @@ export default {
     <v-app-bar id="app-bar" app clipped-left dark color="primary">
       <!-- [....] -->
       <v-spacer />
-      <Appswitcher base-url="https://my-appswitcher-server-instance.example.com" :tags="['global', 'finance']"/>
+      <app-switcher base-url="https://my-appswitcher-server-instance.example.com" :tags="['global', 'finance']"/>
   </v-app>
 </template>
 ```
@@ -93,4 +93,4 @@ Distributed under the MIT License. See [LICENSE](LICENSE) file for more informat
 
 ## Contact
 
-it@M - opensource@muenchen.de
+it@M - <opensource@muenchen.de>

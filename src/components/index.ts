@@ -1,1 +1,1 @@
-export { default as Appswitcher } from "./Appswitcher.vue";
+export { default as AppSwitcher } from "./AppSwitcher.vue";
