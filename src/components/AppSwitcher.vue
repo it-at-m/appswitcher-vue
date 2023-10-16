@@ -27,21 +27,23 @@ const appAvailable = ref(false);
 
 async function isAvailable() {
   let available = false;
-  try {
-    const response = await fetch(componentProps.baseUrl + "/actuator/health");
-    if (response.ok) {
-      available = true;
+  if (componentProps.baseUrl !== undefined) {
+    try {
+      const response = await fetch(componentProps.baseUrl + "/actuator/health");
+      if (response.ok) {
+        available = true;
+      }
+    } catch (error) {
+      // no-op
     }
-  } catch (error) {
-    // no-op
+    appAvailable.value = available;
+    console.log(
+      "Appswitcher: checked availability of " +
+        componentProps.baseUrl +
+        "/actuator/health - available: " +
+        appAvailable.value
+    );
   }
-  appAvailable.value = available;
-  console.log(
-    "Appswitcher: checked availability of " +
-      componentProps.baseUrl +
-      "/actuator/health - available: " +
-      appAvailable.value
-  );
 }
 
 onBeforeMount(async () => {

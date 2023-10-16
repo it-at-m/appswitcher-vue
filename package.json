@@ -8,6 +8,7 @@
     "dist"
   ],
   "main": "./dist/appswitcher.umd.cjs",
+  "types": "./dist/components/index.d.ts",
   "module": "./dist/appswitcher.js",
   "exports": {
     ".": {
