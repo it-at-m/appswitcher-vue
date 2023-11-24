@@ -1,12 +1,9 @@
 {
   "recommendations": [
-    "Vue.volar",
-    "Vue.vscode-typescript-vue-plugin",
-    "ZixuanChen.vitest-explorer"
-  ],
-  "unwantedRecommendations": [
-    "octref.vetur",
-    "Orta.vscode-jest",
+    "vue.volar",
+    "vue.vscode-typescript-vue-plugin",
+    "zixuanchen.vitest-explorer",
     "esbenp.prettier-vscode"
-  ]
+  ],
+  "unwantedRecommendations": ["octref.vetur", "orta.vscode-jest"]
 }

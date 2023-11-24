@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onBeforeMount, watch } from "vue";
+import { computed, onBeforeMount, ref, watch } from "vue";
 
 interface Props {
   baseUrl?: string;
@@ -20,7 +20,7 @@ const componentProps: Props = withDefaults(defineProps<Props>(), {
   width: "315",
   height: "300",
   icon: "mdi-apps",
-  tags: () => []
+  tags: () => [],
 });
 
 const appAvailable = ref(false);
@@ -70,9 +70,15 @@ defineExpose({ uriWithTags });
 </script>
 
 <template>
-  <v-menu :id="id" eager>
+  <v-menu
+    :id="id"
+    eager
+  >
     <template #activator="{ props }">
-      <v-btn icon v-bind="props">
+      <v-btn
+        icon
+        v-bind="props"
+      >
         <v-icon>{{ icon }}</v-icon>
       </v-btn>
     </template>
@@ -85,7 +91,11 @@ defineExpose({ uriWithTags });
         :height="height"
       />
     </v-card>
-    <v-card v-else :width="width" :height="height">
+    <v-card
+      v-else
+      :width="width"
+      :height="height"
+    >
       <v-card-title>{{ componentProps.appswitcherDownHeader }}</v-card-title>
       <v-card-text>{{ componentProps.appswitcherDownText }}</v-card-text>
     </v-card>

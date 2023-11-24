@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { reactive, ref, watch } from "vue";
-import { AppSwitcher } from "./components/index";
 import { useTheme } from "vuetify";
+
+import { AppSwitcher } from "./components/index";
 
 const theme = useTheme();
 
@@ -13,7 +14,7 @@ const defaultState = {
   width: "315",
   height: "300",
   icon: "mdi-apps",
-  tags: () => []
+  tags: () => [],
 };
 
 const configDrawer = ref(true);
@@ -25,7 +26,7 @@ const state = reactive({
   width: defaultState.width,
   height: defaultState.height,
   icon: defaultState.icon,
-  tags: defaultState.tags
+  tags: defaultState.tags,
 });
 
 function resetDemoSettings() {
@@ -79,7 +80,11 @@ toggleDarkMode();
         </v-row>
       </v-container>
     </v-main>
-    <v-navigation-drawer v-model="configDrawer" location="right" width="30em">
+    <v-navigation-drawer
+      v-model="configDrawer"
+      location="right"
+      width="30em"
+    >
       <v-card>
         <v-card-text>
           <v-text-field
@@ -92,7 +97,11 @@ toggleDarkMode();
             label="MDI Icon"
             density="compact"
           />
-          <v-text-field v-model="state.width" label="Width" density="compact" />
+          <v-text-field
+            v-model="state.width"
+            label="Width"
+            density="compact"
+          />
           <v-text-field
             v-model="state.height"
             label="Height"
@@ -107,7 +116,9 @@ toggleDarkMode();
         </v-card-text>
         <v-card-actions>
           <v-spacer />
-          <v-btn class="bg-primary" @click="resetDemoSettings"
+          <v-btn
+            class="bg-primary"
+            @click="resetDemoSettings"
             ><v-icon>mdi-refresh</v-icon>Reset settings</v-btn
           >
         </v-card-actions>
