@@ -1,9 +1,9 @@
-import { shallowMount } from "@vue/test-utils";
-import { AppSwitcher } from "../src/components/index";
+import { config, shallowMount } from "@vue/test-utils";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { nextTick } from "vue";
 import { createVuetify } from "vuetify";
-import { beforeEach, describe, it, vi, expect } from "vitest";
-import { config } from "@vue/test-utils";
+
+import { AppSwitcher } from "../src/components/index";
 
 // see https://test-utils.vuejs.org/migration/#shallowMount-and-renderStubDefaultSlot
 config.global.renderStubDefaultSlot = true;
@@ -24,8 +24,8 @@ describe("AppSwitcher.vue", () => {
       vuetify,
       props: {
         baseUrl: "https://example.com",
-        appswitcherDownText: "custom down text value"
-      }
+        appswitcherDownText: "custom down text value",
+      },
     });
     expect(fetch).toHaveBeenCalledWith("https://example.com/actuator/health");
     await nextTick();
@@ -38,7 +38,7 @@ describe("AppSwitcher.vue", () => {
 
   it("Test Display Frame", async () => {
     fetch.mockResolvedValue({
-      ok: true
+      ok: true,
     });
     let wrapper = shallowMount(AppSwitcher, {
       vuetify,
@@ -46,8 +46,8 @@ describe("AppSwitcher.vue", () => {
         id: "custom-id",
         baseUrl: "https://example.com",
         width: "200",
-        height: "250"
-      }
+        height: "250",
+      },
     });
     expect(fetch).toHaveBeenCalledWith("https://example.com/actuator/health");
     await nextTick();
@@ -66,8 +66,8 @@ describe("AppSwitcher.vue", () => {
       vuetify,
       props: {
         baseUrl: "http://example.com",
-        tags: ["rbs", "global"]
-      }
+        tags: ["rbs", "global"],
+      },
     });
     expect(wrapper.vm.uriWithTags).toBe("http://example.com/?tags=rbs,global");
   });

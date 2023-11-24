@@ -1,8 +1,7 @@
+import vue from "@vitejs/plugin-vue";
+import ViteFonts from "unplugin-fonts/vite";
 import { defineConfig } from "vite";
-import vue from '@vitejs/plugin-vue'
-import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
-import ViteFonts from 'unplugin-fonts/vite'
-
+import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,17 +9,19 @@ export default defineConfig({
   base: "/einrichtungsverwaltung/ezldap-vue-select/",
   plugins: [
     vue({
-      template: { transformAssetUrls }
+      template: { transformAssetUrls },
     }),
     vuetify({
       autoImport: true,
     }),
     ViteFonts({
       google: {
-        families: [{
-          name: 'Roboto',
-          styles: 'wght@100;300;400;500;700;900',
-        }],
+        families: [
+          {
+            name: "Roboto",
+            styles: "wght@100;300;400;500;700;900",
+          },
+        ],
       },
     }),
   ],
