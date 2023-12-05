@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "Vue.js/Vuetify component for appswitcher-server",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/it-at-m/appswitcher-vue"
+  },
   "type": "module",
   "files": [
     "dist"
