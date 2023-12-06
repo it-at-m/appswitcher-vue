@@ -84,8 +84,5 @@
       "prettier",
       "plugin:vuetify/base"
     ]
-  },
-  "dependencies": {
-    "lodash": "^4.17.21"
   }
 }
