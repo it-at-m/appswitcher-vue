@@ -53,7 +53,7 @@
     "jsdom": "^23.0.0",
     "path": "^0.12.7",
     "prettier": "3.1.1",
-    "sass": "~1.69.0",
+    "sass": "~1.71.0",
     "semantic-release": "^23.0.0",
     "typescript": "^5.0.4",
     "unplugin-fonts": "^1.0.3",
