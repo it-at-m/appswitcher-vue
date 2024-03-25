@@ -39,7 +39,7 @@
     "@muenchen/prettier-codeformat": "^1.0.1",
     "@rushstack/eslint-patch": "^1.6.0",
     "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^9.2.1",
+    "@semantic-release/github": "^10.0.0",
     "@types/jest": "^29.2.4",
     "@types/node": "^20.1.1",
     "@vitejs/plugin-vue": "^4.2.3",
