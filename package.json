@@ -54,7 +54,7 @@
     "path": "^0.12.7",
     "prettier": "3.2.5",
     "sass": "~1.77.0",
-    "semantic-release": "^23.0.0",
+    "semantic-release": "^24.0.0",
     "typescript": "^5.0.4",
     "unplugin-fonts": "^1.0.3",
     "vite": "^4.4.9",
