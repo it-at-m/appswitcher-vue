@@ -52,7 +52,7 @@
     "eslint-plugin-vuetify": "^2.0.1",
     "jsdom": "^24.0.0",
     "path": "^0.12.7",
-    "prettier": "3.2.5",
+    "prettier": "3.3.0",
     "sass": "~1.77.0",
     "semantic-release": "^23.0.0",
     "typescript": "^5.0.4",
