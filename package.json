@@ -58,7 +58,7 @@
     "typescript": "^5.0.4",
     "unplugin-fonts": "^1.0.3",
     "vite": "^4.4.9",
-    "vite-plugin-dts": "^3.0.0",
+    "vite-plugin-dts": "^4.0.0",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-vuetify": "^1.0.0",
     "vitest": "^2.0.0",
