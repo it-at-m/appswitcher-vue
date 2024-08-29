@@ -64,9 +64,6 @@
     "vitest": "^2.0.0",
     "vue-tsc": "^2.0.0"
   },
-  "engines": {
-    "node": ">=20"
-  },
   "publishConfig": {
     "access": "public",
     "provenance": true
