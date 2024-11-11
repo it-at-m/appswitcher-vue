@@ -11,18 +11,17 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/appswitcher.umd.cjs",
-  "types": "./dist/components/index.d.ts",
-  "module": "./dist/appswitcher.js",
+  "module": "./dist/appswitcher.es.js",
+  "types": "./dist/types/components/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/appswitcher.js",
-      "require": "./dist/appswitcher.umd.cjs"
+      "types": "./dist/types/components/index.d.ts",
+      "import": "./dist/appswitcher.es.js"
     }
   },
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "rimraf dist && vue-tsc && vite build",
     "build:demo": "vue-tsc && vite build -c vite.demo.config.ts",
     "test": "vitest",
     "coverage": "vitest run --coverage",
@@ -53,6 +52,7 @@
     "jsdom": "^24.0.0",
     "path": "^0.12.7",
     "prettier": "3.3.3",
+    "rimraf": "^6.0.1",
     "sass": "~1.80.0",
     "semantic-release": "^24.0.0",
     "typescript": "^5.0.4",
