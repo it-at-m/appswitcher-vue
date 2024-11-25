@@ -15,7 +15,7 @@ Starting with release **2.x** `appswitcher-vue` **requires Vue.js 3.x and Vuetif
 Required Peer Dependencies:
 
 ```
-"@mdi/font": "> 5",
+"@mdi/font": "> 5", // see Icon font
 "vue": "^3.2.0",
 "vuetify": "^^3.0.0"
 ```
@@ -51,6 +51,28 @@ export default {
   </v-app>
 </template>
 ```
+
+#### Icon font
+
+By default it is expected that your Vuetify application uses [MDI icons via CSS (`@mdi/fonts`)](https://vuetifyjs.com/en/features/icon-fonts/#mdi-css) and the default icon used for the activator button is `mdi-apps`.
+
+If you are not using MDI icons via CSS (`@mdi/fonts`), you can
+
+- provide a icon by setting the `icon` prop or
+- provide a custom [`activator` slot](#activator)
+
+#### Props
+
+| Property              | Description                                                                                    | Type     | Default                                                                             |
+| --------------------- | ---------------------------------------------------------------------------------------------- | -------- | ----------------------------------------------------------------------------------- |
+| baseUrl               | Base-URL to an instance of [appswitcher-server](https://github.com/it-at-m/appswitcher-server) | string   | `undefined`                                                                         |
+| id                    | HTML id attribute prefix                                                                       | string   | `appswitcher`                                                                       |
+| appswitcherDownHeader | If appswitcher-server is not available: Header text                                            | string   | `appswitcher-server is not available`                                               |
+| appswitcherDownText   | If appswitcher-server is not available: Paragraph text                                         | string   | `Your apps could not be retrieved from appswitcher-server. Please try again later.` |
+| tags                  | [Tags](https://github.com/it-at-m/appswitcher-server?tab=readme-ov-file#tags) for request      | string[] | `[]`                                                                                |
+| width                 | Width                                                                                          | string   | `315`                                                                               |
+| height                | Height                                                                                         | string   | `300`                                                                               |
+| icon                  | Icon for activator button                                                                      | string   | `mdi-apps`                                                                          |
 
 #### Slots
 
