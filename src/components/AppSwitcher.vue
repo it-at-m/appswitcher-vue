@@ -75,12 +75,17 @@ defineExpose({ uriWithTags });
     eager
   >
     <template #activator="{ props }">
-      <v-btn
-        icon
-        v-bind="props"
+      <slot
+        name="activator"
+        :props="props"
       >
-        <v-icon>{{ icon }}</v-icon>
-      </v-btn>
+        <v-btn
+          icon
+          v-bind="props"
+        >
+          <v-icon>{{ icon }}</v-icon>
+        </v-btn>
+      </slot>
     </template>
     <v-card v-if="appAvailable">
       <iframe

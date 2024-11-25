@@ -52,6 +52,31 @@ export default {
 </template>
 ```
 
+#### Slots
+
+##### activator
+
+Default:
+
+```vue
+<v-btn icon v-bind="props">
+  <v-icon>{{ icon }}</v-icon>
+</v-btn>
+```
+
+Custom example:
+
+```vue
+<app-switcher
+  base-url="https://my-appswitcher-server-instance.example.com"
+  :tags="['global', 'finance']"
+>
+  <template #activator="{ props }">
+    <v-btn v-bind="props">CUSTOM activator</v-btn>
+  </template>
+</app-switcher>
+```
+
 ## Develop
 
 ```bash

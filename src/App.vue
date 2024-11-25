@@ -73,6 +73,18 @@ toggleDarkMode();
                     :height="state.height"
                   />
                 </v-row>
+                <v-row class="ma-8">
+                  <app-switcher
+                    :base-url="state.baseUrl"
+                    :icon="state.icon"
+                    :width="state.width"
+                    :height="state.height"
+                  >
+                    <template #activator="{ props }">
+                      <v-btn v-bind="props">CUSTOM activator</v-btn>
+                    </template>
+                  </app-switcher>
+                </v-row>
               </v-card-text>
               <v-card-actions> </v-card-actions>
             </v-card>
