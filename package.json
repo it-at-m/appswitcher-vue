@@ -53,7 +53,7 @@
     "path": "^0.12.7",
     "prettier": "3.5.1",
     "rimraf": "^6.0.1",
-    "sass": "~1.84.0",
+    "sass": "~1.85.0",
     "semantic-release": "^24.0.0",
     "typescript": "^5.0.4",
     "unplugin-fonts": "^1.0.3",
