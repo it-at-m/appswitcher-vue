@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { mdiApps } from "@mdi/js";
 import { computed, onBeforeMount, ref, watch } from "vue";
 
 interface Props {
@@ -11,6 +12,7 @@ interface Props {
   height?: string;
   icon?: string;
 }
+
 const componentProps: Props = withDefaults(defineProps<Props>(), {
   baseUrl: undefined,
   id: "appswitcher",
@@ -19,7 +21,7 @@ const componentProps: Props = withDefaults(defineProps<Props>(), {
     "Your apps could not be retrieved from appswitcher-server. Please try again later.",
   width: "315",
   height: "300",
-  icon: "mdi-apps",
+  icon: undefined,
   tags: () => [],
 });
 
@@ -48,7 +50,6 @@ async function isAvailable() {
 
 onBeforeMount(async () => {
   await isAvailable();
-  // console.log("Available: " + appAvailable.value);
 });
 
 const uriWithTags = computed(() => {
@@ -80,10 +81,25 @@ defineExpose({ uriWithTags });
         :props="props"
       >
         <v-btn
-          icon
           v-bind="props"
-        >
-          <v-icon>{{ icon }}</v-icon>
+          icon
+          ><div
+            v-if="icon == undefined || icon == ''"
+            style="width: 24px; height: 24px"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              :d="mdiApps"
+              fill="currentColor"
+            >
+              <path :d="mdiApps" />
+            </svg>
+          </div>
+          <v-icon
+            v-else
+            :icon="icon"
+          />
         </v-btn>
       </slot>
     </template>

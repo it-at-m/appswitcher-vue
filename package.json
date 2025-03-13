@@ -30,11 +30,11 @@
     "prettier": "prettier --write ."
   },
   "peerDependencies": {
-    "@mdi/font": "> 5",
     "vue": "^3.2.0",
     "vuetify": "^3.0.0"
   },
   "devDependencies": {
+    "@mdi/js": "^7.4.47",
     "@muenchen/prettier-codeformat": "^1.0.1",
     "@rushstack/eslint-patch": "^1.6.0",
     "@semantic-release/git": "^10.0.1",

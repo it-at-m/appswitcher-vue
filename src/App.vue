@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { mdiCog } from "@mdi/js";
 import { reactive, ref, watch } from "vue";
 import { useTheme } from "vuetify";
 
@@ -13,7 +14,6 @@ const defaultState = {
     "Your apps could not be retrieved from appswitcher-server. Please try again later.",
   width: "315",
   height: "300",
-  icon: "mdi-apps",
   tags: () => [],
 };
 
@@ -25,7 +25,6 @@ const state = reactive({
   appswitcherDownText: defaultState.appswitcherDownText,
   width: defaultState.width,
   height: defaultState.height,
-  icon: defaultState.icon,
   tags: defaultState.tags,
 });
 
@@ -56,7 +55,7 @@ toggleDarkMode();
       <v-toolbar-title class="ps-2">Appswitcher - Demo Page</v-toolbar-title>
       <v-spacer />
       <v-app-bar-nav-icon @click.stop="configDrawer = !configDrawer">
-        <v-icon>mdi-cog</v-icon>
+        <v-icon :icon="mdiCog" />
       </v-app-bar-nav-icon>
     </v-app-bar>
     <v-main>
@@ -68,7 +67,6 @@ toggleDarkMode();
                 <v-row class="ma-8">
                   <app-switcher
                     :base-url="state.baseUrl"
-                    :icon="state.icon"
                     :width="state.width"
                     :height="state.height"
                   />
@@ -76,7 +74,6 @@ toggleDarkMode();
                 <v-row class="ma-8">
                   <app-switcher
                     :base-url="state.baseUrl"
-                    :icon="state.icon"
                     :width="state.width"
                     :height="state.height"
                   >
@@ -102,11 +99,6 @@ toggleDarkMode();
           <v-text-field
             v-model="state.baseUrl"
             label="Base-URL"
-            density="compact"
-          />
-          <v-text-field
-            v-model="state.icon"
-            label="MDI Icon"
             density="compact"
           />
           <v-text-field
