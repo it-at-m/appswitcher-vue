@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { mdiCog } from "@mdi/js";
 import { reactive, ref, watch } from "vue";
 import { useTheme } from "vuetify";
 
@@ -54,7 +55,7 @@ toggleDarkMode();
       <v-toolbar-title class="ps-2">Appswitcher - Demo Page</v-toolbar-title>
       <v-spacer />
       <v-app-bar-nav-icon @click.stop="configDrawer = !configDrawer">
-        <v-icon>mdi-cog</v-icon>
+        <v-icon :icon="mdiCog" />
       </v-app-bar-nav-icon>
     </v-app-bar>
     <v-main>

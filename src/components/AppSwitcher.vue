@@ -80,7 +80,9 @@ defineExpose({ uriWithTags });
         name="activator"
         :props="props"
       >
-        <v-btn icon
+        <v-btn
+          v-bind="props"
+          icon
           ><div
             v-if="icon == undefined || icon == ''"
             style="width: 24px; height: 24px"
