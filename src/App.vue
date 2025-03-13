@@ -66,7 +66,6 @@ toggleDarkMode();
                 <v-row class="ma-8">
                   <app-switcher
                     :base-url="state.baseUrl"
-                    :icon="state.icon"
                     :width="state.width"
                     :height="state.height"
                   />
