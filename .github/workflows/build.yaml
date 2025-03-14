@@ -28,6 +28,8 @@ jobs:
           cache: "npm"
           registry-url: "https://registry.npmjs.org"
       - run: npm ci
+      - run: nmp run lint:check
+      - run: nmp run prettier:check
       - run: npm run coverage
       - run: npm run build
       - name: run semantic-release

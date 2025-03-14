@@ -5,7 +5,7 @@ import { computed, onBeforeMount, ref, watch } from "vue";
 interface Props {
   baseUrl?: string;
   id?: string;
-  appswitcherDownHeader?: any;
+  appswitcherDownHeader?: string;
   appswitcherDownText?: string;
   tags?: string[];
   width?: string;
@@ -36,7 +36,10 @@ async function isAvailable() {
         available = true;
       }
     } catch (error) {
-      // no-op
+      console.error(
+        "Appswitcher: Error occured at checking availability.",
+        error
+      );
     }
     appAvailable.value = available;
     console.log(
@@ -106,10 +109,11 @@ defineExpose({ uriWithTags });
     <v-card v-if="appAvailable">
       <iframe
         :id="id + '-iframe'"
-        frameborder="0"
+        title="Appswitcher Frame"
         :src="uriWithTags"
         :width="width"
         :height="height"
+        style="border: none"
       />
     </v-card>
     <v-card
