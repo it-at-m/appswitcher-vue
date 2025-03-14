@@ -14,9 +14,7 @@ export default defineConfig({
     vuetify({
       autoImport: true,
     }),
-    eslintPlugin({
-      fix: true,
-    }),
+    eslintPlugin(),
     dts(),
   ],
   build: {

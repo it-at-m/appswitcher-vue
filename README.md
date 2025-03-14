@@ -15,7 +15,6 @@ Starting with release **2.x** `appswitcher-vue` **requires Vue.js 3.x and Vuetif
 Required Peer Dependencies:
 
 ```
-"@mdi/font": "> 5", // see Icon font
 "vue": "^3.2.0",
 "vuetify": "^^3.0.0"
 ```
@@ -51,15 +50,6 @@ export default {
   </v-app>
 </template>
 ```
-
-#### Icon font
-
-By default it is expected that your Vuetify application uses [MDI icons via CSS (`@mdi/fonts`)](https://vuetifyjs.com/en/features/icon-fonts/#mdi-css) and the default icon used for the activator button is `mdi-apps`.
-
-If you are not using MDI icons via CSS (`@mdi/fonts`), you can
-
-- provide a icon by setting the `icon` prop or
-- provide a custom [`activator` slot](#activator)
 
 #### Props
 
