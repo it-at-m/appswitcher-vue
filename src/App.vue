@@ -8,7 +8,7 @@ import { AppSwitcher } from "./components/index";
 const theme = useTheme();
 
 const defaultState = {
-  baseUrl: "",
+  baseUrl: "http://localhost:8080",
   appswitcherDownHeader: "appswitcher-server is not available",
   appswitcherDownText:
     "Your apps could not be retrieved from appswitcher-server. Please try again later.",

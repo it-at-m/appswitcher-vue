@@ -91,21 +91,22 @@ Custom example:
 
 ## Develop
 
+It is recommended to run a local instance of [appswitcher-server](https://github.com/it-at-m/appswitcher-server) as a "backend", e.g. using Docker:
+
 ```bash
-# Do dev stuff
-npm run serve
+docker run -d --name appswitcher-server -p 8080:8080 -e SPRING_PROFILES_ACTIVE=demo ghcr.io/it-at-m/appswitcher-server:latest
 ```
 
-## Build & Demo
+```bash
+# Do dev stuff
+npm run dev
+```
+
+## Build
 
 ```bash
 # Run build process
 npm run build
-```
-
-```bash
-# Run demo app
-npm run dev
 ```
 
 ## Release & Publish
