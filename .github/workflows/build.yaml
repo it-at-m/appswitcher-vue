@@ -2,9 +2,9 @@ name: build and test
 
 on:
   push:
-    branches: ["main", "beta"]
+    branches: ["main", "alpha", "beta", "next"]
   pull_request:
-    branches: ["main", "beta"]
+    branches: ["main", "alpha", "beta", "next"]
 
 env:
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
