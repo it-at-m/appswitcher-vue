@@ -10,20 +10,19 @@ Provides a Vue.js/Vuetify component to quickly switch between apps provided by a
 npm install @muenchen/appswitcher-vue
 ```
 
-Starting with release **2.x** `appswitcher-vue` **requires Vue.js 3.x and Vuetify 3.x** as **peer dependencies**, to be exact:
-
-Required Peer Dependencies:
+Required **Peer Dependencies**:
 
 ```
-"vue": "^3.2.0",
-"vuetify": "^^3.0.0"
+"vue": "^3.5.0",
+"vuetify": "^4.0.0"
 ```
 
-If you are using Vue.js 2.X and Vuetify 2.X, you still can use release 1.0.0:
+If you are using older versions of Vue.js and Vuetify, you still can use older releases:
 
-```console
-npm install @muenchen/appswitcher-vue@1.0.0
-```
+| Vue.js | Vuetify | appswitcher-vue Version |
+| ------ | ------- | ----------------------- |
+| 2.x    | 2.x     | 1.x                     |
+| 3.x    | 3.x     | 2.x                     |
 
 ### Use
 
