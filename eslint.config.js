@@ -1,3 +1,4 @@
+import globals from "globals";
 import jsEslintConfig from "@eslint/js";
 import vuePrettierEslintConfigSkipFormatting from "@vue/eslint-config-prettier/skip-formatting";
 import {
@@ -16,6 +17,14 @@ export default defineConfigWithVueTs(
   vuetify.configs["flat/base"],
   vueTsConfigs.recommended,
   vuePrettierEslintConfigSkipFormatting,
+  {
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node
+      }
+    }
+  },
   globalIgnores([
     "dist",
     "dist-demo",
