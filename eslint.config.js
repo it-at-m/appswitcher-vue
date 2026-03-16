@@ -1,4 +1,3 @@
-import globals from "globals";
 import jsEslintConfig from "@eslint/js";
 import vuePrettierEslintConfigSkipFormatting from "@vue/eslint-config-prettier/skip-formatting";
 import {
@@ -9,6 +8,7 @@ import { ESLint } from "eslint";
 import vueEslintConfig from "eslint-plugin-vue";
 import vuetify from "eslint-plugin-vuetify";
 import { globalIgnores } from "eslint/config";
+import globals from "globals";
 
 export default defineConfigWithVueTs(
   ESLint.defaultConfig,
@@ -21,9 +21,9 @@ export default defineConfigWithVueTs(
     languageOptions: {
       globals: {
         ...globals.browser,
-        ...globals.node
-      }
-    }
+        ...globals.node,
+      },
+    },
   },
   globalIgnores([
     "dist",
