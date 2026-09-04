@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { mdiApps } from "@mdi/js";
+import { mdiAlert, mdiApps } from "@mdi/js";
 import { computed, defineOptions, onBeforeMount, ref, watch } from "vue";
 
 defineOptions({
@@ -9,66 +9,58 @@ defineOptions({
 interface Props {
   baseUrl?: string;
   id?: string;
-  appswitcherDownHeader?: string;
-  appswitcherDownText?: string;
+  unavailableText?: string;
   tags?: string[];
   width?: string;
   height?: string;
   icon?: string;
 }
 
-const componentProps: Props = withDefaults(defineProps<Props>(), {
-  baseUrl: undefined,
-  id: "appswitcher",
-  appswitcherDownHeader: "appswitcher-server is not available",
-  appswitcherDownText:
-    "Your apps could not be retrieved from appswitcher-server. Please try again later.",
-  width: "315",
-  height: "300",
-  icon: undefined,
-  tags: () => [],
-});
+const {
+  baseUrl = undefined,
+  id = "appswitcher",
+  unavailableText = "Your apps could not be retrieved from appswitcher-server. Please try again later.",
+  tags = [],
+  width = "315",
+  height = "300",
+  icon = mdiApps,
+} = defineProps<Props>();
 
-const appAvailable = ref(false);
+const serverAvailable = ref(false);
 
 async function isAvailable() {
-  let available = false;
-  if (componentProps.baseUrl !== undefined) {
-    try {
-      const response = await fetch(componentProps.baseUrl + "/actuator/health");
-      if (response.ok) {
-        available = true;
-      }
-    } catch (error) {
-      console.error(
-        "Appswitcher: Error occured at checking availability.",
-        error
-      );
-    }
-    appAvailable.value = available;
-    console.log(
-      "Appswitcher: checked availability of " +
-        componentProps.baseUrl +
-        "/actuator/health - available: " +
-        appAvailable.value
+  if (!baseUrl) {
+    return;
+  }
+
+  const healthUrl = `${baseUrl}/actuator/health`;
+
+  try {
+    const response = await fetch(healthUrl);
+    serverAvailable.value = response.ok;
+  } catch (error) {
+    serverAvailable.value = false;
+    console.error(
+      "Appswitcher: Error occurred while checking availability.",
+      error
     );
   }
+
+  console.debug(
+    `Appswitcher: checked availability of ${healthUrl} - available: ${serverAvailable.value}`
+  );
 }
 
 onBeforeMount(async () => {
   await isAvailable();
 });
 
-const uriWithTags = computed(() => {
-  if (componentProps.tags?.length === 0) {
-    return componentProps.baseUrl;
-  } else {
-    return componentProps.baseUrl + "/?tags=" + componentProps.tags?.join(",");
-  }
-});
+const uriWithTags = computed(() =>
+  tags.length ? `${baseUrl}/?tags=${tags.join(",")}` : baseUrl
+);
 
 watch(
-  () => componentProps.baseUrl,
+  () => baseUrl,
   async () => {
     await isAvailable();
   }
@@ -88,36 +80,36 @@ defineExpose({ uriWithTags });
         :props="props"
       >
         <v-icon-btn
-            v-bind="{ ...props, ...$attrs }"
-            :icon="icon ?? mdiApps"
+          v-bind="{ ...props, ...$attrs }"
+          :icon="icon"
         />
       </slot>
     </template>
-    <v-card v-if="appAvailable">
-      <iframe
-        :id="id + '-iframe'"
-        title="Appswitcher Frame"
-        :src="uriWithTags"
-        :width="width"
-        :height="height"
-        style="border: none"
-      />
-    </v-card>
     <v-card
-      v-else
       :width="width"
       :height="height"
     >
-      <v-card-title>{{ componentProps.appswitcherDownHeader }}</v-card-title>
-      <v-card-text>{{ componentProps.appswitcherDownText }}</v-card-text>
+      <iframe
+        v-if="serverAvailable"
+        :id="id + '-iframe'"
+        title="Appswitcher Frame"
+        :src="uriWithTags"
+        class="border-0"
+      />
+      <div
+        v-else
+        class="d-flex flex-column align-center justify-center fill-height"
+      >
+        <v-icon
+          :icon="mdiAlert"
+          color="red"
+          size="large"
+          class="mb-4"
+        />
+        <v-card-text class="flex-grow-0 text-center">
+          {{ unavailableText }}
+        </v-card-text>
+      </div>
     </v-card>
   </v-menu>
 </template>
-
-<style scoped>
-.v-card__text,
-.v-card__title {
-  word-break: normal;
-  /* maybe !important  */
-}
-</style>
