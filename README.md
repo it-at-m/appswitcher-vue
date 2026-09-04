@@ -14,7 +14,7 @@ Required **Peer Dependencies**:
 
 ```
 "vue": "^3.5.0",
-"vuetify": "^4.0.0"
+"vuetify": "^4.1.0"
 ```
 
 If you are using older versions of Vue.js and Vuetify, you still can use older releases:
@@ -23,6 +23,7 @@ If you are using older versions of Vue.js and Vuetify, you still can use older r
 | ------ | ------- | ----------------------- |
 | 2.x    | 2.x     | 1.x                     |
 | 3.x    | 3.x     | 2.x                     |
+| 3.x    | 4.0.x   | 3.x                     |
 
 ### Use
 
