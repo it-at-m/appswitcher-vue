@@ -24,7 +24,7 @@ describe("AppSwitcher.vue", () => {
       vuetify,
       props: {
         baseUrl: "https://example.com",
-        appswitcherDownText: "custom down text value",
+        unavailableText: "custom unavailable text value",
       },
     });
     expect(fetch).toHaveBeenCalledWith("https://example.com/actuator/health");
