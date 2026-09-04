@@ -53,16 +53,15 @@ export default {
 
 #### Props
 
-| Property              | Description                                                                                    | Type     | Default                                                                             |
-| --------------------- | ---------------------------------------------------------------------------------------------- | -------- | ----------------------------------------------------------------------------------- |
-| baseUrl               | Base-URL to an instance of [appswitcher-server](https://github.com/it-at-m/appswitcher-server) | string   | `undefined`                                                                         |
-| id                    | HTML id attribute prefix                                                                       | string   | `appswitcher`                                                                       |
-| appswitcherDownHeader | If appswitcher-server is not available: Header text                                            | string   | `appswitcher-server is not available`                                               |
-| appswitcherDownText   | If appswitcher-server is not available: Paragraph text                                         | string   | `Your apps could not be retrieved from appswitcher-server. Please try again later.` |
-| tags                  | [Tags](https://github.com/it-at-m/appswitcher-server?tab=readme-ov-file#tags) for request      | string[] | `[]`                                                                                |
-| width                 | Width                                                                                          | string   | `315`                                                                               |
-| height                | Height                                                                                         | string   | `300`                                                                               |
-| icon                  | Icon for activator button                                                                      | string   | `mdi-apps`                                                                          |
+| Property        | Description                                                                                    | Type     | Default                                                                             |
+|-----------------| ---------------------------------------------------------------------------------------------- | -------- | ----------------------------------------------------------------------------------- |
+| baseUrl         | Base-URL to an instance of [appswitcher-server](https://github.com/it-at-m/appswitcher-server) | string   | `undefined`                                                                         |
+| id              | HTML id attribute prefix                                                                       | string   | `appswitcher`                                                                       |
+| unavailableText | If appswitcher-server is not available: Paragraph text                                         | string   | `Your apps could not be retrieved from appswitcher-server. Please try again later.` |
+| tags            | [Tags](https://github.com/it-at-m/appswitcher-server?tab=readme-ov-file#tags) for request      | string[] | `[]`                                                                                |
+| width           | Width                                                                                          | string   | `315`                                                                               |
+| height          | Height                                                                                         | string   | `300`                                                                               |
+| icon            | Icon for activator button                                                                      | string   | `mdi-apps`                                                                          |
 
 #### Slots
 
