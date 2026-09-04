@@ -88,13 +88,14 @@ defineExpose({ uriWithTags });
     <v-card
       :width="width"
       :height="height"
+      class="ma-0 pa-0"
     >
       <iframe
         v-if="serverAvailable"
         :id="id + '-iframe'"
         title="Appswitcher Frame"
         :src="uriWithTags"
-        class="border-0"
+        class="border-0 fill-height w-100"
       />
       <div
         v-else
