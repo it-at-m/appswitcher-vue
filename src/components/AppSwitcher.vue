@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { mdiApps } from "@mdi/js";
-import { computed, onBeforeMount, ref, watch } from "vue";
+import { computed, defineOptions, onBeforeMount, ref, watch } from "vue";
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 interface Props {
   baseUrl?: string;
@@ -83,27 +87,10 @@ defineExpose({ uriWithTags });
         name="activator"
         :props="props"
       >
-        <v-btn
-          v-bind="props"
-          icon
-          ><div
-            v-if="icon == undefined || icon == ''"
-            style="width: 24px; height: 24px"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              :d="mdiApps"
-              fill="currentColor"
-            >
-              <path :d="mdiApps" />
-            </svg>
-          </div>
-          <v-icon
-            v-else
-            :icon="icon"
-          />
-        </v-btn>
+        <v-icon-btn
+            v-bind="{ ...props, ...$attrs }"
+            :icon="icon ?? mdiApps"
+        />
       </slot>
     </template>
     <v-card v-if="appAvailable">
