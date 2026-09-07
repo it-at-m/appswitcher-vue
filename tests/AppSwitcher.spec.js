@@ -55,7 +55,7 @@ describe("AppSwitcher.vue", () => {
     await nextTick();
     console.log(wrapper.html());
     const iframe = wrapper.find("#custom-id-iframe");
-    const card = wrapper.find('v-card-stub');
+    const card = wrapper.find("v-card-stub");
     expect(iframe.exists()).toBeTruthy();
     expect(iframe.attributes("src")).toBe("https://example.com");
     expect(card.attributes("width")).toBe("200");
