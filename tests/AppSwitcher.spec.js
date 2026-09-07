@@ -24,14 +24,14 @@ describe("AppSwitcher.vue", () => {
       vuetify,
       props: {
         baseUrl: "https://example.com",
-        appswitcherDownText: "custom down text value",
+        unavailableText: "custom unavailable text value",
       },
     });
     expect(fetch).toHaveBeenCalledWith("https://example.com/actuator/health");
     await nextTick();
 
     expect(wrapper.find("#appswitcher").text()).toContain(
-      "custom down text value"
+      "custom unavailable text value"
     );
     expect(wrapper.find("#appswitcher-iframe").exists()).toBe(false);
   });
@@ -55,10 +55,11 @@ describe("AppSwitcher.vue", () => {
     await nextTick();
     console.log(wrapper.html());
     const iframe = wrapper.find("#custom-id-iframe");
+    const card = wrapper.find("v-card-stub");
     expect(iframe.exists()).toBeTruthy();
     expect(iframe.attributes("src")).toBe("https://example.com");
-    expect(iframe.attributes("width")).toBe("200");
-    expect(iframe.attributes("height")).toBe("250");
+    expect(card.attributes("width")).toBe("200");
+    expect(card.attributes("height")).toBe("250");
   });
 
   it("Test Tags", async () => {

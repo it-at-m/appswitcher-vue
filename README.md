@@ -14,7 +14,7 @@ Required **Peer Dependencies**:
 
 ```
 "vue": "^3.5.0",
-"vuetify": "^4.0.0"
+"vuetify": "^4.1.0"
 ```
 
 If you are using older versions of Vue.js and Vuetify, you still can use older releases:
@@ -23,6 +23,7 @@ If you are using older versions of Vue.js and Vuetify, you still can use older r
 | ------ | ------- | ----------------------- |
 | 2.x    | 2.x     | 1.x                     |
 | 3.x    | 3.x     | 2.x                     |
+| 3.x    | 4.0.x   | 3.x                     |
 
 ### Use
 
@@ -52,16 +53,15 @@ export default {
 
 #### Props
 
-| Property              | Description                                                                                    | Type     | Default                                                                             |
-| --------------------- | ---------------------------------------------------------------------------------------------- | -------- | ----------------------------------------------------------------------------------- |
-| baseUrl               | Base-URL to an instance of [appswitcher-server](https://github.com/it-at-m/appswitcher-server) | string   | `undefined`                                                                         |
-| id                    | HTML id attribute prefix                                                                       | string   | `appswitcher`                                                                       |
-| appswitcherDownHeader | If appswitcher-server is not available: Header text                                            | string   | `appswitcher-server is not available`                                               |
-| appswitcherDownText   | If appswitcher-server is not available: Paragraph text                                         | string   | `Your apps could not be retrieved from appswitcher-server. Please try again later.` |
-| tags                  | [Tags](https://github.com/it-at-m/appswitcher-server?tab=readme-ov-file#tags) for request      | string[] | `[]`                                                                                |
-| width                 | Width                                                                                          | string   | `315`                                                                               |
-| height                | Height                                                                                         | string   | `300`                                                                               |
-| icon                  | Icon for activator button                                                                      | string   | `mdi-apps`                                                                          |
+| Property        | Description                                                                                    | Type     | Default                                                                             |
+| --------------- | ---------------------------------------------------------------------------------------------- | -------- | ----------------------------------------------------------------------------------- |
+| baseUrl         | Base-URL to an instance of [appswitcher-server](https://github.com/it-at-m/appswitcher-server) | string   | `undefined`                                                                         |
+| id              | HTML id attribute prefix                                                                       | string   | `appswitcher`                                                                       |
+| unavailableText | If appswitcher-server is not available: Paragraph text                                         | string   | `Your apps could not be retrieved from appswitcher-server. Please try again later.` |
+| tags            | [Tags](https://github.com/it-at-m/appswitcher-server?tab=readme-ov-file#tags) for request      | string[] | `[]`                                                                                |
+| width           | Width                                                                                          | string   | `315`                                                                               |
+| height          | Height                                                                                         | string   | `300`                                                                               |
+| icon            | Icon for activator button                                                                      | string   | `mdi-apps`                                                                          |
 
 #### Slots
 
@@ -70,9 +70,7 @@ export default {
 Default:
 
 ```vue
-<v-btn icon v-bind="props">
-  <v-icon>{{ icon }}</v-icon>
-</v-btn>
+<v-icon-btn v-bind="{ ...props, ...$attrs }" :icon="icon" />
 ```
 
 Custom example:
