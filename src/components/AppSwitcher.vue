@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { mdiAlert, mdiApps } from "@mdi/js";
-import { computed, defineOptions, onBeforeMount, ref, watch } from "vue";
+import { computed, onBeforeMount, ref, watch } from "vue";
 
 defineOptions({
   inheritAttrs: false,
