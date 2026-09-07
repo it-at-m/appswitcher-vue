@@ -70,9 +70,7 @@ export default {
 Default:
 
 ```vue
-<v-btn icon v-bind="props">
-  <v-icon>{{ icon }}</v-icon>
-</v-btn>
+<v-icon-btn v-bind="{ ...props, ...$attrs }" :icon="icon" />
 ```
 
 Custom example:

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { mdiAlert, mdiApps } from "@mdi/js";
-import { computed, onBeforeMount, ref, watch } from "vue";
+import { computed, mergeProps, onBeforeMount, ref, watch } from "vue";
 
 defineOptions({
   inheritAttrs: false,
@@ -30,6 +30,7 @@ const serverAvailable = ref(false);
 
 async function isAvailable() {
   if (!baseUrl) {
+    serverAvailable.value = false;
     return;
   }
 
@@ -80,7 +81,7 @@ defineExpose({ uriWithTags });
         :props="props"
       >
         <v-icon-btn
-          v-bind="{ ...props, ...$attrs }"
+          v-bind="mergeProps(props, $attrs)"
           :icon="icon"
         />
       </slot>
